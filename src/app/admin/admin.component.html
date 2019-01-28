@@ -1,0 +1,14 @@
+<mat-toolbar class="top-toolbar">
+  <mat-toolbar-row>
+      <button mat-button class="span-menu" [routerLink]="['./connections']">{{dictionary.connections}}</button>
+      <mat-icon class="top-icon" [routerLink]="['./connections']">compare_arrows</mat-icon>
+    <button mat-button class="span-menu" [routerLink]="['./flights']">{{dictionary.flights}}</button>
+    <mat-icon class="top-icon" [routerLink]="['./flights']">flight_takeoff</mat-icon>
+    <button mat-button class="span-menu" [routerLink]="['./planes']">{{dictionary.planes}}</button>
+    <mat-icon class="top-icon" [routerLink]="['./planes']">flight</mat-icon>
+  <button mat-button class="span-menu" [routerLink]="['./users']">{{dictionary.users}}</button>
+  <mat-icon class="top-icon" [routerLink]="['./users']">supervised_user_circle</mat-icon>
+  </mat-toolbar-row>
+  </mat-toolbar>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,52 @@
+<mat-form-field>
+  <input
+  [(ngModel)]="this.connectionID"
+  matInput placeholder="{{dictionary.connectionID}}" required>
+</mat-form-field>
+<br>
+<mat-form-field>
+    <input
+    [(ngModel)]="this.planeID"
+     matInput placeholder="{{dictionary.planeID}}" required>
+  </mat-form-field>
+<br>
+<mat-form-field>
+  <input
+  [(ngModel)]="this.departureDate"
+  matInput [matDatepicker]="picker" placeholder="{{dictionary.departureDate}}" required>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<br>
+<mat-form-field>
+  <input
+  [(ngModel)]="this.departureTime"
+   matInput placeholder="{{dictionary.departureHour}}" required>
+</mat-form-field>
+<br>
+<mat-form-field>
+  <input
+  [(ngModel)]="this.arrivalDate"
+  matInput [matDatepicker]="picker2" placeholder="{{dictionary.arrivalDate}}" required>
+  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+  <mat-datepicker #picker2></mat-datepicker>
+</mat-form-field>
+<br>
+<mat-form-field>
+  <input
+  [(ngModel)]="this.arrivalTime"
+   matInput placeholder="{{dictionary.arrivalHour}}" required>
+</mat-form-field>
+<br>
+<mat-form-field>
+  <input
+  [(ngModel)]="this.ticketCost"
+   matInput placeholder="{{dictionary.ticketCost}}" required>
+</mat-form-field>
+<br>
+<button mat-raised-button color="primary" (click)="makeFlight()" (click)="clicked=true" [disabled]="clicked">{{dictionary.addFlight}}</button>
+<br>
+<br>
+<ng-container *ngIf="clicked"><button mat-raised-button color="primary"
+ (click)="postFlight()" [routerLink]="['../flights']">{{dictionary.confirm}}
+</button></ng-container>

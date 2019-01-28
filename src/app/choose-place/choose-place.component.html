@@ -1,0 +1,139 @@
+<h2>{{dictionary.choose}} {{this.flightSearchService.getHowManyPassengers()}} {{dictionary.nPlaces}}</h2>
+
+
+
+<div class="row">
+
+
+
+  <div class="col">
+    <table>
+        <tr *ngFor="let seat of this.flightSearchService.seats">
+            <ng-container *ngIf="seat.whichRow===1">
+              <ng-container *ngIf="this.flightSearchService.getHowManyPassengers()>0; else choosen">
+              <td *ngIf="seat.category==this.flightSearchService.category; else notThisCategory">
+                  <button *ngIf="seat.free; else seatOccuped" mat-fab color="primary" (click)="this.flightSearchService.setHowManyPassengers(this.flightSearchService.getHowManyPassengers()-1)"
+                  (click)="this.flightSearchService.setSeatOccuped(seat)" (click)="this.flightSearchService.addToChosenSeats(seat)"
+                  >{{seat.whichRow}} , {{seat.place}}</button>
+              </td>
+
+              <ng-template #notThisCategory>
+                <button mat-fab disabled>{{dictionary.otherClass}}</button>
+              </ng-template>
+
+                <ng-template #seatOccuped>
+                    <button mat-fab color="warn">{{dictionary.occuped}}</button>
+                </ng-template>
+              </ng-container>
+
+              <ng-template #choosen>
+                  <button mat-fab color="accent">X</button>
+              </ng-template>
+            </ng-container>
+            </tr>
+    </table>
+  </div>
+  <div class="col">
+      <table>
+          <tr *ngFor="let seat of this.flightSearchService.seats">
+              <ng-container *ngIf="seat.whichRow===2">
+                <ng-container *ngIf="this.flightSearchService.getHowManyPassengers()>0; else choosen">
+                    <td *ngIf="seat.category==this.flightSearchService.category; else notThisCategory">
+                        <button *ngIf="seat.free; else seatOccuped" mat-fab color="primary" (click)="this.flightSearchService.setHowManyPassengers(this.flightSearchService.getHowManyPassengers()-1)"
+                        (click)="this.flightSearchService.setSeatOccuped(seat)" (click)="this.flightSearchService.addToChosenSeats(seat)"
+                        >{{seat.whichRow}} , {{seat.place}}</button>
+                    </td>
+
+                    <ng-template #notThisCategory>
+                      <button mat-fab disabled>{{dictionary.otherClass}}</button>
+                    </ng-template>
+
+                      <ng-template #seatOccuped>
+                          <button mat-fab color="warn">{{dictionary.occuped}}</button>
+                      </ng-template>
+                    </ng-container>
+
+                    <ng-template #choosen>
+                        <button mat-fab color="accent">X</button>
+                    </ng-template>
+                  </ng-container>
+                  </tr>
+      </table>
+    </div>
+    <div class="col">
+        <table>
+            <tr *ngFor="let seat of this.flightSearchService.seats">
+                <ng-container *ngIf="seat.whichRow===3">
+                  <ng-container *ngIf="this.flightSearchService.getHowManyPassengers()>0; else choosen">
+                      <td *ngIf="seat.category==this.flightSearchService.category; else notThisCategory">
+                          <button *ngIf="seat.free; else seatOccuped" mat-fab color="primary" (click)="this.flightSearchService.setHowManyPassengers(this.flightSearchService.getHowManyPassengers()-1)"
+                          (click)="this.flightSearchService.setSeatOccuped(seat)" (click)="this.flightSearchService.addToChosenSeats(seat)"
+                          >{{seat.whichRow}} , {{seat.place}}</button>
+                      </td>
+
+                      <ng-template #notThisCategory>
+                        <button mat-fab disabled>{{dictionary.otherClass}}</button>
+                      </ng-template>
+
+                        <ng-template #seatOccuped>
+                            <button mat-fab color="warn">{{dictionary.occuped}}</button>
+                        </ng-template>
+                      </ng-container>
+
+                      <ng-template #choosen>
+                          <button mat-fab color="accent">X</button>
+                      </ng-template>
+                    </ng-container>
+                    </tr>
+        </table>
+      </div>
+      <div class="col">
+          <table>
+              <tr *ngFor="let seat of this.flightSearchService.seats">
+                  <ng-container *ngIf="seat.whichRow===4">
+                    <ng-container *ngIf="this.flightSearchService.getHowManyPassengers()>0; else choosen">
+                        <td *ngIf="seat.category==this.flightSearchService.category; else notThisCategory">
+                            <button *ngIf="seat.free; else seatOccuped" mat-fab color="primary" (click)="this.flightSearchService.setHowManyPassengers(this.flightSearchService.getHowManyPassengers()-1)"
+                            (click)="this.flightSearchService.setSeatOccuped(seat)" (click)="this.flightSearchService.addToChosenSeats(seat)"
+                            >{{seat.whichRow}} , {{seat.place}}</button>
+                        </td>
+
+                        <ng-template #notThisCategory>
+                          <button mat-fab disabled>{{dictionary.otherClass}}</button>
+                        </ng-template>
+
+                          <ng-template #seatOccuped>
+                              <button mat-fab color="warn">{{dictionary.occuped}}</button>
+                          </ng-template>
+                        </ng-container>
+
+                        <ng-template #choosen>
+                            <button mat-fab color="accent">X</button>
+                        </ng-template>
+                      </ng-container>
+                      </tr>
+          </table>
+        </div>
+  <div class="col">
+      <p>{{dictionary.chosenPlaces}}:</p>
+      <table mat-table style="width: 100%; height: 4em" class="mat-elevation-z6">
+          <tr>
+          <th>{{dictionary.row}}</th>
+          <th>{{dictionary.place}}</th>
+        </tr>
+      <tr *ngFor="let seat of this.flightSearchService.chosenSeats">
+        <td>{{seat.whichRow}}</td>
+        <td>{{seat.place}}</td>
+      </tr>
+    </table>
+    </div>
+
+    <div class="col">
+        <br>
+        <button mat-raised-button color="warn" (click)="this.flightSearchService.clearChosenSeats()">{{dictionary.clearYourChoice}}</button>
+          <br>
+          <br>
+          <button mat-raised-button color="primary" [routerLink]="['/buyingform']">{{dictionary.goNext}}</button>
+    </div>
+
+</div>

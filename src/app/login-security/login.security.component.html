@@ -1,0 +1,55 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+  {{dictionary.loggedAs}}
+</div>
+
+<ng-template #loggedOut>
+    <div class="row">
+        <br>
+        <br>
+        <br>
+      <div class="col">
+        <br>
+        <br>
+        <mat-form-field>
+          <input
+          [(ngModel)]="form.username"
+          matInput placeholder="{{dictionary.username}}" [formControl]="loginFormControl"
+          [errorStateMatcher]="matcher" required>
+          <mat-error *ngIf="loginFormControl.hasError('required')">
+            {{dictionary.loginDemanded}}
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-form-field>
+            <input
+            [(ngModel)]="form.password" type="password"
+             matInput placeholder="{{dictionary.password}}" [formControl]="passwordFormControl"
+             [errorStateMatcher]="matcher" required>
+             <mat-error *ngIf="passwordFormControl.hasError('required')">
+              {{dictionary.passwordDemanded}}
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <button mat-raised-button color="primary" (click)="login()" [disabled]="loginFormControl.invalid || passwordFormControl.invalid">{{dictionary.login}}</button>
+      </div>
+      <div class="col">
+        <img class="login-image" src="assets/images/login.png" width="300px" height="360px">
+      </div>
+    </div>
+
+        <div class="container">
+          <br>
+            <div *ngIf="isLoginFailed" class="alert alert-danger">
+              {{dictionary.loginError}}
+            </div>
+          </div>
+        <hr />
+        <div class="container">
+        <br>
+        <p>{{dictionary.dontHaveAcc}}</p>
+        <button [routerLink]="['/signup']" mat-raised-button>{{dictionary.registerMe}}</button>
+      </div>
+
+</ng-template>

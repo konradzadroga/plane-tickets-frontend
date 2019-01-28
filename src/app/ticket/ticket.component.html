@@ -1,0 +1,44 @@
+<div class="container">
+  <br>
+  <br>
+    <mat-card>
+      <mat-card-title>{{dictionary.ticket}} {{dictionary.number}}: {{flightSearchService.ticketToShow.ticketID}} <br>
+      {{dictionary.plane}}: {{flightSearchService.ticketToShow.flight.plane.planeName}}
+      </mat-card-title>
+    <mat-list>
+      <br>
+      <div class="row">
+      <div class="col">
+        <mat-list-item>{{dictionary.name}}: {{flightSearchService.ticketToShow.name}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.surname}}: {{flightSearchService.ticketToShow.surname}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.pesel}}: {{flightSearchService.ticketToShow.pesel}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.phoneNumber}}: {{flightSearchService.ticketToShow.phonenumber}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.from}}: {{flightSearchService.ticketToShow.flight.connection.departureAirport.airportName}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.to}}: {{flightSearchService.ticketToShow.flight.connection.arrivalAirport.airportName}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.price}}: {{flightSearchService.ticketToShow.ticketCost}}</mat-list-item>
+      </div>
+      <div class="col">
+        <mat-list-item>{{dictionary.departureDate}}: {{flightSearchService.ticketToShow.flight.departureDate | date: 'dd/MM/yyyy'}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.departureHour}}: {{flightSearchService.ticketToShow.flight.departureTime}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.arrivalDate}}: {{flightSearchService.ticketToShow.flight.arrivalDate | date: 'dd/MM/yyyy'}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.arrivalHour}}: {{flightSearchService.ticketToShow.flight.arrivalTime}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.row}}: {{flightSearchService.ticketToShow.whichRow}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.place}}: {{flightSearchService.ticketToShow.place}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{dictionary.class}}: {{flightSearchService.ticketToShow.category}}</mat-list-item>
+      </div>
+    </div>
+      </mat-list>
+    </mat-card>
+    </div>

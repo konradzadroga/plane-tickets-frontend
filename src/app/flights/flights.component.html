@@ -1,0 +1,30 @@
+<div class = "container">
+  <br>
+  <button mat-raised-button color="primary" [routerLink]="['../addflight']">{{dictionary.addFlight}}</button>
+  <table style="width: 100%;" mat-table class="mat-elevation-z12">
+   <tr>
+     <th>ID</th>
+     <th>{{dictionary.departureAirport}}</th>
+     <th>{{dictionary.arrivalAirport}}</th>
+     <th>{{dictionary.departureDate}}</th>
+     <th>{{dictionary.departureHour}}</th>
+     <th>{{dictionary.arrivalDate}}</th>
+     <th>{{dictionary.arrivalHour}}</th>
+     <th>{{dictionary.plane}}</th>
+     <th>{{dictionary.ticketCost}}</th>
+   </tr>
+    <tr *ngFor="let flight of flights" style="height: 3em">
+        <td>{{flight.flightID}}</td>
+        <td>{{flight.connection.departureAirport.airportName}}</td>
+        <td>{{flight.connection.arrivalAirport.airportName}}</td>
+        <td>{{flight.departureDate | date: 'dd/MM/yyyy'}}</td>
+        <td>{{flight.departureTime}}</td>
+        <td>{{flight.arrivalDate | date: 'dd/MM/yyyy'}}</td>
+        <td>{{flight.arrivalTime}}</td>
+        <td>{{flight.plane.planeName}}</td>
+        <td>{{flight.ticketCost}} zł</td>
+    </tr>
+  </table>
+</div>
+
+

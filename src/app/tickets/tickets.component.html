@@ -1,0 +1,27 @@
+<br>
+<h2>{{dictionary.yourTickets}}:</h2>
+<div>
+    <table style="width: 100%; height: 3em" mat-table class="mat-elevation-z12">
+     <tr>
+       <th>{{dictionary.name}}</th>
+       <br>
+       <th>{{dictionary.surname}}</th>
+       <th>{{dictionary.departureAirport}}</th>
+       <th>{{dictionary.arrivalAirport}}</th>
+       <th>{{dictionary.date}}</th>
+
+     </tr>
+      <tr *ngFor="let ticket of this.userTickets">
+          <td>{{ticket.name}}</td>
+          <br>
+          <td>{{ticket.surname}}</td>
+          <td>{{ticket.flight.connection.departureAirport.airportName}}</td>
+          <td>{{ticket.flight.connection.arrivalAirport.airportName}}</td>
+          <td>{{ticket.flight.departureDate | date: 'dd/MM/yyyy'}}</td>
+          <td><button mat-raised-button color="primary" (click)="makeTicketTheOneToShow(ticket)" [routerLink]="['../showticket']">{{dictionary.showTicket}}</button></td>
+      </tr>
+
+    </table>
+
+  </div>
+

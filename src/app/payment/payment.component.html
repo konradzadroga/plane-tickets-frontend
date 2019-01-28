@@ -1,0 +1,4 @@
+<h1>{{dictionary.summaryOfPurchase}}</h1>
+<h2>Suma: {{this.flightSearchService.paymentSum}}</h2>
+<button mat-raised-button color="primary" (click)="flightSearchService.addTickets()" (click)="this.flightSearchService.makePlacesReserved()" (click)="this.flightSearchService.clearArrays()"
+[routerLink]="['/paymentrealised']">{{dictionary.pay}}</button>

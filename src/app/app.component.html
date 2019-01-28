@@ -1,0 +1,53 @@
+<div class = "container">
+<br>
+  <mat-toolbar color="primary" class="top-toolbar">
+    <mat-toolbar-row>
+        <mat-icon class="top-icon">flight_takeoff</mat-icon>
+      <span class="span-title">latajtanio.pl</span>
+      <span class="spacer"></span>
+      <span class="span-hello">{{city}}</span>
+      <span class="span-hello">{{temepature}}°C</span>
+      <button mat-button class="span-menu" (click)="changeLanguage()">{{dictionary.changeLanguage}}</button>
+      <mat-icon class="top-icon" (click)="changeLanguage()" title="Zmien jezyk">language</mat-icon>
+      <button mat-button class="span-menu" (click)="changeTheme()">{{dictionary.changeTheme}}</button>
+      <mat-icon class="top-icon" (click)="changeTheme()" title="Zmien motyw">tonality</mat-icon>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <ng-container *ngIf="userService.user!==undefined; else notLoggedIn">
+            <ng-container *ngIf="authority==='admin'">
+            <button mat-button class="span-menu" [routerLink]="['/admin']">{{dictionary.adminPanel}}</button>
+          <mat-icon class="top-icon" [routerLink]="['/admin']" title="Admin">settings</mat-icon>
+        </ng-container>
+        <button mat-button class="span-menu" [routerLink]="['/profil']">{{dictionary.profile}}</button>
+        <mat-icon class="top-icon" [routerLink]="['/profil']" title="Profil">account_circle</mat-icon>
+        <button mat-button class="span-menu" (click)="logout()" [routerLink]="['/search']">{{dictionary.logout}}</button>
+        <mat-icon class="top-icon" (click)="logout()" title="Wyloguj się">exit_to_app</mat-icon>
+      </ng-container>
+
+      <button mat-button class="span-menu" (click)="this.flightSearchService.clearArrays()" [routerLink]="['/search']">{{dictionary.search}}</button>
+       <mat-icon class="top-icon" (click)="this.flightSearchService.clearArrays()" [routerLink]="['/search']" title="Wyszukaj lot">search</mat-icon>
+       <button mat-button class="span-menu" [routerLink]="['/insurance']">{{dictionary.insurance}}</button>
+       <mat-icon class="top-icon" [routerLink]="['/insurance']" title="Ubezpieczenie">local_hospital</mat-icon>
+
+       <ng-container *ngIf="userService.user!==undefined">
+       <span class="spacer"></span>
+       <span class="span-hello">{{dictionary.youAreLoggedAs}} {{info.username}}!</span>
+       </ng-container>
+
+       <ng-template #notLoggedIn>
+          <button mat-button class="span-menu" [routerLink]="['/signup']">{{dictionary.register}}</button>
+          <mat-icon class="top-icon" [routerLink]="['/signup']" title="Zarejestruj się">how_to_reg</mat-icon>
+          <button mat-button class="span-menu" [routerLink]="['/auth/login']">{{dictionary.login}}</button>
+          <mat-icon class="top-icon" [routerLink]="['/auth/login']" title="Zaloguj się">vpn_key</mat-icon>
+
+         </ng-template>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+
+    <router-outlet></router-outlet>
+
+
+
+</div>

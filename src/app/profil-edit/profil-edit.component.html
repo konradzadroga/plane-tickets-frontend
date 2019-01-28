@@ -1,0 +1,56 @@
+<div class="container">
+
+
+    <br>
+    <mat-form-field>
+      <input
+      [(ngModel)]="this.tempName"
+      matInput placeholder="{{dictionary.name}}"
+      [formControl]="nameFormControl"
+       [errorStateMatcher]="matcher" required>
+      <mat-error *ngIf="nameFormControl.hasError('required')">
+        {{dictionary.nameDemanded}}
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field>
+        <input
+        [(ngModel)]="this.tempSurname"
+         matInput placeholder="{{dictionary.surname}}"
+        [formControl]="surnameFormControl"
+         [errorStateMatcher]="matcher" required>
+         <mat-error *ngIf="surnameFormControl.hasError('required')">
+            {{dictionary.surnameDemanded}}
+          </mat-error>
+      </mat-form-field>
+    <br>
+    <br>
+  <mat-form-field>
+  <input
+  [(ngModel)]="this.tempPhoneNumber"
+   matInput placeholder="{{dictionary.phoneNumber}}" [formControl]="phoneNumberFormControl"
+   [errorStateMatcher]="matcher" required>
+   <mat-error *ngIf="phoneNumberFormControl.hasError('minlength') || phoneNumberFormControl.hasError('maxlength') && !phoneFormControl.hasError('required')">
+    {{dictionary.enterValidPhoneNumber}}
+  </mat-error>
+  <mat-error *ngIf="phoneNumberFormControl.hasError('required')">
+    {{dictionary.phoneNumberDemanded}}
+  </mat-error>
+</mat-form-field>
+<br>
+
+<button mat-button mat-raised-button color="primary" (click)="clicked=true" (click)="updateUserDetails(user)"
+[disabled]="clicked">{{dictionary.makeChanges}}</button>
+<br>
+
+<div class="container" *ngIf="clicked">
+  <br>
+  {{dictionary.areYouSureToMakeChanges}}
+  <br>
+<button mat-raised-button color="primary" (click)="flightSearchService.updateUser(user)"[routerLink]="['/profil']">
+  {{dictionary.yes}}
+</button>
+</div>
+
+</div>

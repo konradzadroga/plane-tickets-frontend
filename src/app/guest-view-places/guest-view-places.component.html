@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="col">
+      <table>
+          <tr *ngFor="let seat of this.flightSearchService.seats">
+              <ng-container *ngIf="seat.whichRow===1">
+                <ng-container *ngIf="this.flightSearchService.getHowManyPassengers()>0; else choosen">
+                <td *ngIf="seat.category==this.flightSearchService.category; else notThisCategory">
+                    <button *ngIf="seat.free; else seatOccuped" mat-fab color="primary">{{seat.whichRow}} , {{seat.place}}</button>
+                </td>
+
+                <ng-template #notThisCategory>
+                  <button mat-fab disabled>{{dictionary.otherClass}}</button>
+                </ng-template>
+
+                  <ng-template #seatOccuped>
+                      <button mat-fab color="warn">{{dictionary.occuped}}</button>
+                  </ng-template>
+                </ng-container>
+
+                <ng-template #choosen>
+                    <button mat-fab color="accent">X</button>
+                </ng-template>
+              </ng-container>
+              </tr>
+      </table>
+    </div>
+
+    <div class="col">
+        <table>
+            <tr *ngFor="let seat of this.flightSearchService.seats">
+                <ng-container *ngIf="seat.whichRow===2">
+                  <ng-container *ngIf="this.flightSearchService.getHowManyPassengers()>0; else choosen">
+                      <td *ngIf="seat.category==this.flightSearchService.category; else notThisCategory">
+                          <button *ngIf="seat.free; else seatOccuped" mat-fab color="primary">{{seat.whichRow}} , {{seat.place}}</button>
+                      </td>
+
+                      <ng-template #notThisCategory>
+                        <button mat-fab disabled>{{dictionary.otherClass}}</button>
+                      </ng-template>
+
+                        <ng-template #seatOccuped>
+                            <button mat-fab color="warn">{{dictionary.occuped}}</button>
+                        </ng-template>
+                      </ng-container>
+
+                      <ng-template #choosen>
+                          <button mat-fab color="accent">X</button>
+                      </ng-template>
+                    </ng-container>
+                    </tr>
+        </table>
+      </div>
+
+      <div class="col">
+          <table>
+              <tr *ngFor="let seat of this.flightSearchService.seats">
+                  <ng-container *ngIf="seat.whichRow===3">
+                    <ng-container *ngIf="this.flightSearchService.getHowManyPassengers()>0; else choosen">
+                        <td *ngIf="seat.category==this.flightSearchService.category; else notThisCategory">
+                            <button *ngIf="seat.free; else seatOccuped" mat-fab color="primary">{{seat.whichRow}} , {{seat.place}}</button>
+                        </td>
+
+                        <ng-template #notThisCategory>
+                          <button mat-fab disabled>{{dictionary.otherClass}}</button>
+                        </ng-template>
+
+                          <ng-template #seatOccuped>
+                              <button mat-fab color="warn">{{dictionary.occuped}}</button>
+                          </ng-template>
+                        </ng-container>
+
+                        <ng-template #choosen>
+                            <button mat-fab color="accent">X</button>
+                        </ng-template>
+                      </ng-container>
+                      </tr>
+          </table>
+        </div>
+
+        <div class="col">
+            <table>
+                <tr *ngFor="let seat of this.flightSearchService.seats">
+                    <ng-container *ngIf="seat.whichRow===4">
+                      <ng-container *ngIf="this.flightSearchService.getHowManyPassengers()>0; else choosen">
+                          <td *ngIf="seat.category==this.flightSearchService.category; else notThisCategory">
+                              <button *ngIf="seat.free; else seatOccuped" mat-fab color="primary">{{seat.whichRow}} , {{seat.place}}</button>
+                          </td>
+
+                          <ng-template #notThisCategory>
+                            <button mat-fab disabled>{{dictionary.otherClass}}</button>
+                          </ng-template>
+
+                            <ng-template #seatOccuped>
+                                <button mat-fab color="warn">{{dictionary.occuped}}</button>
+                            </ng-template>
+                          </ng-container>
+
+                          <ng-template #choosen>
+                              <button mat-fab color="accent">X</button>
+                          </ng-template>
+                        </ng-container>
+                        </tr>
+            </table>
+          </div>
+
+          </div>

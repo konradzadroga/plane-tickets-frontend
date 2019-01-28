@@ -1,0 +1,86 @@
+<div class="container">
+<ng-container *ngFor="let seat of this.flightSearchService.chosenSeats; index as i">
+  <br>
+  <br>
+  {{dictionary.row}}: {{seat.whichRow}}
+  <br>
+  {{dictionary.place}}: {{seat.place}}
+  <br>
+
+    <mat-form-field>
+      <input matInput placeholder="{{dictionary.name}}"
+      [(ngModel)]="flightSearchService.names[i]"
+      [formControl]="nameFormControl"
+      [errorStateMatcher]="matcher"
+      required>
+      <mat-error *ngIf="nameFormControl.hasError('required')">
+          {{dictionary.nameDemanded}}
+        </mat-error>
+
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="{{dictionary.surname}}"
+        [(ngModel)]="flightSearchService.surnames[i]"
+        [formControl]="surnameFormControl"
+        [errorStateMatcher]="matcher"
+        required>
+        <mat-error *ngIf="surnameFormControl.hasError('required')">
+            {{dictionary.surnameDemanded}}
+          </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="{{dictionary.pesel}}"
+        [(ngModel)]="flightSearchService.pesels[i]"
+        [formControl]="peselFormControl"
+        [errorStateMatcher]="matcher"
+        required>
+        <mat-error *ngIf="surnameFormControl.hasError('required')">
+            {{dictionary.peselDemanded}}
+          </mat-error>
+      </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="{{dictionary.phoneNumber}}"
+      [(ngModel)]="flightSearchService.phonenumbers[i]"
+      [formControl]="phoneNumberFormControl"
+      [errorStateMatcher]="matcher"
+      required>
+      <mat-error *ngIf="surnameFormControl.hasError('required')">
+          {{dictionary.phoneNumberDemanded}}
+        </mat-error>
+    </mat-form-field>
+    <br>
+        <label class="example-margin">{{dictionary.doYouWantInsurance}}</label>
+        <br>
+        <mat-radio-group [(ngModel)]="flightSearchService.insurance[i]">
+          <mat-radio-button class="example-margin" (click)="flightSearchService.clickedRadio[i]=true" value=false>{{dictionary.no}}</mat-radio-button>
+          <br>
+          <mat-radio-button class="example-margin" (click)="flightSearchService.clickedRadio[i]=true" value=true>{{dictionary.yes}}</mat-radio-button>
+          <br>
+        </mat-radio-group>
+
+    <button mat-raised-button color="primary"  *ngIf="flightSearchService.insurance[i]==='true'; else withoutInsurance" mat-button (click)="flightSearchService.tickets.push(flightSearchService.makeTicket(flightSearchService.names[i], flightSearchService.surnames[i],
+    (flightSearchService.flight.ticketCost*flightSearchService.category)+40, flightSearchService.getCategory(),
+    seat.whichRow, seat.place, userService.getUser(), flightSearchService.flight, flightSearchService.insurance[i], flightSearchService.phonenumbers[i],
+    flightSearchService.pesels[i]))" (click)="flightSearchService.clicked[i]=true"
+    [disabled]="nameFormControl.invalid || surnameFormControl.invalid || peselFormControl.invalid || phoneNumberFormControl.invalid
+    || flightSearchService.clicked[i] || !flightSearchService.clickedRadio[i]"(click)="flightSearchService.isAllClicked()">{{dictionary.confirm}}</button>
+
+    <ng-template #withoutInsurance>
+        <button mat-raised-button color="primary" (click)="flightSearchService.tickets.push(flightSearchService.makeTicket(flightSearchService.names[i], flightSearchService.surnames[i],
+        flightSearchService.flight.ticketCost*flightSearchService.category, flightSearchService.getCategory(),
+        seat.whichRow, seat.place, userService.getUser(), flightSearchService.flight, flightSearchService.insurance[i], flightSearchService.phonenumbers[i],
+        flightSearchService.pesels[i]))" (click)="flightSearchService.clicked[i]=true"
+        [disabled]="nameFormControl.invalid || surnameFormControl.invalid
+        || flightSearchService.clicked[i] || !flightSearchService.clickedRadio[i]" (click)="flightSearchService.isAllClicked()">{{dictionary.confirm}}</button>
+    </ng-template>
+  </ng-container>
+  <br>
+  <br>
+  <br>
+  <br>
+  <button mat-raised-button color="primary" (click)="this.flightSearchService.countPaymentSummary()" [disabled]="!flightSearchService.allClicked"
+  [routerLink]="['/payment']">{{dictionary.goToSummary}}</button>
+</div>
