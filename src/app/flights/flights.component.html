@@ -23,6 +23,7 @@
         <td>{{flight.arrivalTime}}</td>
         <td>{{flight.plane.planeName}}</td>
         <td>{{flight.ticketCost}} zł</td>
+        <td><button mat-raised-button color="warn" [routerLink]="['../flightdeleted']" (click)="deleteFlight(flight)">{{dictionary.deleteFlight}}</button></td>
     </tr>
   </table>
 </div>

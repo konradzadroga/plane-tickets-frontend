@@ -23,4 +23,8 @@ export class FlightsComponent implements OnInit {
     });
   }
 
+  deleteFlight(flight: Flight) {
+    this.httpService.deleteFlight(flight).subscribe();
+  }
+
 }

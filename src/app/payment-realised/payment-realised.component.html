@@ -1,3 +1,12 @@
-<h1>{{dictionary.paymentDone}}</h1>
 <br>
-<button mat-raised-button color="primary" [routerLink]="['/profil/showtickets']">{{dictionary.showTickets}}</button>
+<mat-card>
+  <mat-card-title>{{dictionary.paymentDone}}:</mat-card-title>
+<mat-list>
+  <br>
+    <mat-list-item>{{dictionary.ticketsWillBeSend}}: {{userService.getUser().email}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>{{dictionary.andAccessable}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><button mat-raised-button color="primary" [routerLink]="['/profil/showtickets']" style="text-align: center">{{dictionary.showTickets}}</button></mat-list-item>
+  </mat-list>
+</mat-card>

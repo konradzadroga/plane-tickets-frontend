@@ -1,4 +1,19 @@
-<h1>{{dictionary.summaryOfPurchase}}</h1>
-<h2>Suma: {{this.flightSearchService.paymentSum}}</h2>
-<button mat-raised-button color="primary" (click)="flightSearchService.addTickets()" (click)="this.flightSearchService.makePlacesReserved()" (click)="this.flightSearchService.clearArrays()"
-[routerLink]="['/paymentrealised']">{{dictionary.pay}}</button>
+<mat-card>
+  <mat-card-title>{{dictionary.summaryOfPurchase}}:</mat-card-title>
+<mat-list>
+  <br>
+  <mat-list-item>{{dictionary.noOfTickets}}: {{this.flightSearchService.tickets.length}}</mat-list-item>
+  <mat-divider></mat-divider>
+    <ng-container *ngFor="let ticket of this.flightSearchService.tickets; let i=index">
+      <mat-list-item>{{i+1}}. {{ticket.name}} {{ticket.surname}}, {{dictionary.pesel}}: {{ticket.pesel}}, {{dictionary.phoneNumber}}: {{ticket.phonenumber}}</mat-list-item>
+      <mat-list-item>{{dictionary.row}}: {{ticket.whichRow}}, {{dictionary.place}}: {{ticket.place}}, {{dictionary.ticketCost}}: {{ticket.ticketCost}}</mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+    <mat-list-item>{{dictionary.sum}}: {{this.flightSearchService.paymentSum}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><button mat-raised-button color="primary" style="text-align: center"
+       (click)="flightSearchService.addTickets()" (click)="this.flightSearchService.makePlacesReserved()" (click)="this.flightSearchService.clearArrays()"
+      [routerLink]="['/paymentrealised']">{{dictionary.pay}}</button></mat-list-item>
+  </mat-list>
+</mat-card>
+

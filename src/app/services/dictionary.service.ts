@@ -109,6 +109,18 @@ export class DictionaryService {
   planeID: string;
   addFlight: string;
   youAreLoggedAs: string;
+  ticketsWillBeSend: string;
+  andAccessable: string;
+  noOfTickets: string;
+  nowYouCant: string;
+  loginLowerCase: string;
+  deleteFlight: string;
+  flightRemoved: string;
+  goBack: string;
+  wrongDate: string;
+  noFlightsFound: string;
+  flightAdded: string;
+  flightSearchResults: string;
 
 
   constructor() { }
@@ -198,7 +210,7 @@ export class DictionaryService {
       this.no = 'Nie';
       this.yes = 'Tak';
       this.otherClass = 'Inna klasa';
-      this.loggedAs = 'Zalogowany jako';
+      this.loggedAs = 'Zalogowano.';
       this.loginError = 'Logowanie nie udało się. Zła nazwa użytkownika i/lub hasło. Sprobuj ponownie.';
       this.enterValidPhoneNumber = 'Wprowadź poprawny numer telefonu';
       this.enterValidEmail = 'Wprowadź poprawny adres e-mail';
@@ -223,6 +235,18 @@ export class DictionaryService {
       this.planeID = 'ID samolotu';
       this.addFlight = 'Dodaj lot';
       this.youAreLoggedAs = 'Witaj';
+      this.ticketsWillBeSend = 'Bilety zostały wysłane na adres e-mail';
+      this.andAccessable = 'Oraz są dostępne w Twoim profilu w zakładce "Zobacz biety"';
+      this.noOfTickets = 'Liczba biletow';
+      this.nowYouCant = 'Teraz możesz jedynie obejrzeć wolne miejsca. Aby moc kupowac bilety';
+      this.loginLowerCase = 'zaloguj się.';
+      this.deleteFlight = 'Usun lot';
+      this.flightRemoved = 'Lot został usunięty';
+      this.goBack = 'Wroc do listy lotow';
+      this.wrongDate = 'Wybrałes datę wczesniejszą niż dzien jutrzejszy.';
+      this.noFlightsFound = 'Nie znaleziono lotow o podanych kryteriach wyszukiwania.';
+      this.flightAdded = 'Lot został dodany.';
+      this.flightSearchResults = 'Wyniki wyszukiwania';
 
     } else if (language === 'en') {
       this.adminPanel = 'Admin';
@@ -328,6 +352,18 @@ export class DictionaryService {
       this.planeID = 'Plane ID';
       this.addFlight = 'Add flight';
       this.youAreLoggedAs = 'Hello';
+      this.ticketsWillBeSend = 'Tickets has been sent to e-mail adress';
+      this.andAccessable = 'They could be seen also in bookmark "Show tickets" in your profile';
+      this.noOfTickets = 'Number of tickets';
+      this.nowYouCant = 'Now you can only see places, to buy tickets';
+      this.loginLowerCase = 'sign in.';
+      this.deleteFlight = 'Delete flight';
+      this.flightRemoved = 'Flight has been deleted';
+      this.goBack = 'Go back to the flights list';
+      this.wrongDate = 'You have choosen date earlier than tomorrow.';
+      this.noFlightsFound = 'No flights found with your criterias.';
+      this.flightAdded = 'Flight has been added.';
+      this.flightSearchResults = 'Flight search results';
     }
   }
 

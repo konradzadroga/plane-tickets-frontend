@@ -1,3 +1,5 @@
+import { FlightAddedComponent } from './flight-added/flight-added.component';
+import { FlightRemovedComponent } from './flight-removed/flight-removed.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
 import { PlanesComponent } from './planes/planes.component';
 import { TicketComponent } from './ticket/ticket.component';
@@ -103,6 +105,14 @@ const routes: Routes = [  {
     {
       path: 'addflight',
       component: AddFlightComponent
+    },
+    {
+      path: 'flightdeleted',
+      component: FlightRemovedComponent
+    },
+    {
+      path: 'flightadded',
+      component: FlightAddedComponent
     }
   ]
   },

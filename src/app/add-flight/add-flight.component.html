@@ -1,13 +1,33 @@
-<mat-form-field>
-  <input
-  [(ngModel)]="this.connectionID"
-  matInput placeholder="{{dictionary.connectionID}}" required>
-</mat-form-field>
-<br>
+<div class="row">
+<div class="col">
 <mat-form-field>
     <input
-    [(ngModel)]="this.planeID"
-     matInput placeholder="{{dictionary.planeID}}" required>
+    [(ngModel)]="departureAirport"
+    matInput placeholder="{{dictionary.departureAirport}}" required [formControl]="airportControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredAirportOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+      <input
+      [(ngModel)]="arrivalAirport"
+       matInput placeholder="{{dictionary.arrivalAirport}}" required [formControl]="airportControl" [matAutocomplete]="auto">
+       <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredAirportOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+<br>
+<mat-form-field>
+    <mat-select placeholder="{{dictionary.plane}}" [(ngModel)]="planeName" required>
+        <mat-option *ngFor="let plane of allPlanes" [value]="plane.planeName">
+          {{plane.planeName}}
+        </mat-option>
+      </mat-select>
   </mat-form-field>
 <br>
 <mat-form-field>
@@ -48,5 +68,12 @@
 <br>
 <br>
 <ng-container *ngIf="clicked"><button mat-raised-button color="primary"
- (click)="postFlight()" [routerLink]="['../flights']">{{dictionary.confirm}}
+ (click)="postFlight()" [routerLink]="['../flightadded']">{{dictionary.confirm}}
 </button></ng-container>
+</div>
+
+<div class="col">
+    <img class="add-image" src="assets/images/add.png" width="300px" height="360px">
+</div>
+
+</div>

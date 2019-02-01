@@ -193,6 +193,10 @@ export class FlightSearchService {
    this.allClicked = false;
    this.howManyPassengersAtFirst = 0;
    this.paymentSum = 0;
+   this.dateDeparture = undefined;
+   this.departure = '';
+   this.arrival = '';
+   this.category = undefined;
  }
 
  countPaymentSummary() {

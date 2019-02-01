@@ -45,6 +45,8 @@ import {MatListModule} from '@angular/material/list';
 import { TicketComponent } from './ticket/ticket.component';
 import { PlanesComponent } from './planes/planes.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
+import { FlightRemovedComponent } from './flight-removed/flight-removed.component';
+import { FlightAddedComponent } from './flight-added/flight-added.component';
 
 
 @NgModule({
@@ -69,7 +71,9 @@ import { AddFlightComponent } from './add-flight/add-flight.component';
     RegisterSecurityComponent,
     TicketComponent,
     PlanesComponent,
-    AddFlightComponent
+    AddFlightComponent,
+    FlightRemovedComponent,
+    FlightAddedComponent
   ],
   imports: [
     BrowserModule,

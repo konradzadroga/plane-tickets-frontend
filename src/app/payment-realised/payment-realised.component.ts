@@ -1,3 +1,4 @@
+import { UserSecurityService } from './../services/user.security.service';
 import { DictionaryService } from './../services/dictionary.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentRealisedComponent implements OnInit {
 
-  constructor(public dictionary: DictionaryService) { }
+  constructor(public dictionary: DictionaryService, public userService: UserSecurityService) { }
 
   ngOnInit() {
   }

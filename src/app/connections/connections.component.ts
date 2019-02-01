@@ -20,7 +20,6 @@ export class ConnectionsComponent implements OnInit {
   getConnections() {
     this.httpService.getConnections().subscribe(connections => {
       this.connections = connections;
-      console.log(connections);
     });
   }
 

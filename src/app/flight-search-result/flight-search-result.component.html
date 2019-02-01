@@ -1,7 +1,13 @@
-<h2>Wyniki wyszukiwania:</h2>
 <br>
+<ng-container *ngIf="compareDates(); else goodDate">
+<p>{{dictionary.wrongDate}}</p>
+</ng-container>
+
+<ng-template #goodDate>
+<ng-container *ngIf="this.flightSearchService.flights.length>0; else emptyList">
 <div class="container">
     <br>
+    <h2>{{dictionary.flightSearchResults}}:</h2>
       <table mat-table style="width: 100%; height: 4em" class="mat-elevation-z1">
           <tr>
               <th>{{dictionary.depart}}</th>
@@ -33,3 +39,9 @@
             </tr>
             </table>
 </div>
+</ng-container>
+
+<ng-template #emptyList>
+<p>{{dictionary.noFlightsFound}}</p>
+</ng-template>
+</ng-template>

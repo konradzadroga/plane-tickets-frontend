@@ -10,10 +10,22 @@ import { DictionaryService } from '../services/dictionary.service';
 })
 export class FlightSearchResultComponent implements OnInit {
 
+  currentDate: Date;
+
   constructor(public flightSearchService: FlightSearchService, public userService: UserSecurityService,
-    public dictionary: DictionaryService) { }
+    public dictionary: DictionaryService) {
+      this.currentDate = new Date();
+    }
 
   ngOnInit() {
+  }
+
+  compareDates(): boolean {
+    if (this.currentDate >= this.flightSearchService.dateDeparture) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

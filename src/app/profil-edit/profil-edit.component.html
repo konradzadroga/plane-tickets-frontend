@@ -41,7 +41,7 @@
 <br>
 
 <button mat-button mat-raised-button color="primary" (click)="clicked=true" (click)="updateUserDetails(user)"
-[disabled]="clicked">{{dictionary.makeChanges}}</button>
+[disabled]="phoneNumberFormControl.invalid || nameFormControl.invalid || surnameFormControl.invalid || clicked">{{dictionary.makeChanges}}</button>
 <br>
 
 <div class="container" *ngIf="clicked">

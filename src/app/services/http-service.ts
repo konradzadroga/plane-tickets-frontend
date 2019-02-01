@@ -102,5 +102,9 @@ export class HttpService {
     return this.http.post<Users>('http://localhost:8080/users', user);
   }
 
+  deleteFlight(flight: Flight) {
+    return this.http.delete<Flight>('http://localhost:8080/flights/' + flight.flightID);
+  }
+
 
   }
